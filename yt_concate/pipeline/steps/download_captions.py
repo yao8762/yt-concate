@@ -11,9 +11,9 @@ class DownloadCaptions(Step):
     def process(self, data, inputs, utils):
         start = time.time()
         for yt in data:
-            logging.info(f'downloading caption for: {yt.id}')
+            logging.debug(f'downloading caption for: {yt.id}')
             if utils.caption_file_exists(yt):
-                logging.info('found existing caption file')
+                logging.debug('found existing caption file')
                 continue
 
             try:

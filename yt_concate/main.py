@@ -58,7 +58,7 @@ def main():
     formatter = logging.Formatter('%(levelname)s:%(asctime)s:%(message)s')
 
     file_handler = logging.FileHandler('event.log')
-    file_handler.setLevel(logging.DEBUG)
+    file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
