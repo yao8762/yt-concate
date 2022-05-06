@@ -1,7 +1,8 @@
 from .step import Step
+import logging
 
 
 class Postflight(Step):
     def process(self, data, inputs, utils):
-        print('in Postflight')
+        logging.info('in Postflight')
 

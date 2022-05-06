@@ -1,3 +1,5 @@
+import logging
+
 from .step import Step
 
 from moviepy.editor import VideoFileClip,  concatenate_videoclips
@@ -11,7 +13,7 @@ class EditVideo(Step):
             video = VideoFileClip(found.yt.video_filepath).subclip(start, end)
             clips.append(video)
             if len(clips) >= inputs['limit']:
-                print(f'Maximum number of clips reached {len(clips)}')
+                logging.info(f'Maximum number of clips reached {len(clips)}')
                 break
 
         final_clip = concatenate_videoclips(clips)
