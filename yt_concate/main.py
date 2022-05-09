@@ -17,14 +17,14 @@ from yt_concate.utils import Utils
 
 
 CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
-short_opts = 'hc:k:l:i:'
-long_opts = 'help channel_id= key_word= limit= info='.split()
+short_opts = 'hc:s:l:i:'
+long_opts = 'help channel_id= search_word= limit= info='.split()
 
 
 def main():
     inputs = {
         'channel_id': CHANNEL_ID,
-        'key_word': 'incredible',
+        'search_word': 'incredible',
         'limit': 20,
         'info_level': 'INFO'
     }
@@ -41,14 +41,14 @@ def main():
             sys.exit(0)
         elif opt in ("-c", "--channel_id"):
             inputs['channel_id'] = arg
-        elif opt in ("-k", "--key_word"):
+        elif opt in ("-s", "--search_word"):
             inputs['search_word'] = arg
         elif opt in ("-l", "--limit"):
             inputs['limit'] = int(arg)
         elif opt in ("-i", "--info"):
             inputs['info_level'] = arg
 
-    if inputs['channel_id'] == "" or inputs['key_word'] == "":
+    if inputs['channel_id'] == "" or inputs['search_word'] == "":
         print_usage()
         sys.exit(2)
 
@@ -58,7 +58,7 @@ def main():
     formatter = logging.Formatter('%(levelname)s:%(asctime)s:%(message)s')
 
     file_handler = logging.FileHandler('event.log')
-    file_handler.setLevel(logging.DEBUG)
+    file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
@@ -92,7 +92,7 @@ def print_usage():
     print('python test2.py OPTIONS')
     print('OPTIONS:')
     print('{:>6} {:<20}{}'.format('-c', '--channel_id', 'channel id of the Youtube channel to download'))
-    print('{:>6} {:<20}{}'.format('w', '--search_word', 'Search words from subtitles on Youtube channel'))
-    print('{:>6} {:<20}{}'.format('l', '--limit', 'Maximum number of clips for merged videos'))
-    print('{:>6} {:<20}{}'.format('i', '--info', 'Setting screen display message (ex: DEBUG、INFO、WARNING、ERROR)'))
+    print('{:>6} {:<20}{}'.format('-s', '--search_word', 'Search words from subtitles on Youtube channel'))
+    print('{:>6} {:<20}{}'.format('-l', '--limit', 'Maximum number of clips for merged videos'))
+    print('{:>6} {:<20}{}'.format('-i', '--info', 'Setting screen display message (ex: DEBUG、INFO、WARNING、ERROR)'))
 

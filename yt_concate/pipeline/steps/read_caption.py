@@ -8,7 +8,7 @@ class ReadCaption(Step):
                 continue
 
             captions = {}
-            with open(yt.caption_filepath, 'r') as f:
+            with open(yt.caption_filepath, 'r', encoding='utf-8') as f:
                 time_line = False
                 time = None
                 caption = None

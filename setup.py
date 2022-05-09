@@ -18,7 +18,7 @@ URL = 'https://github.com/yao8762/yt-concate'
 EMAIL = 'hot665992002@gmail.com'
 AUTHOR = 'yao8762'
 REQUIRES_PYTHON = '>=3.10.0'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
